@@ -24,6 +24,9 @@ jobs:
 
       - name: Build with Gradle
         run: ./gradlew assembleRelease
+        env:
+          GITHUB_PACKAGES_USERNAME: ${{ secrets.GITHUB_PACKAGES_USERNAME }}
+          GITHUB_PACKAGES_PASSWORD: ${{ secrets.GITHUB_PACKAGES_PASSWORD }}
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
