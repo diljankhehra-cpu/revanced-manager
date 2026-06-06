@@ -22,11 +22,14 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
+      - name: Create gradle.properties with credentials
+        run: |
+          mkdir -p ~/.gradle
+          echo "githubPackagesUsername=${{ secrets.GITHUB_PACKAGES_USERNAME }}" >> ~/.gradle/gradle.properties
+          echo "githubPackagesPassword=${{ secrets.GITHUB_PACKAGES_PASSWORD }}" >> ~/.gradle/gradle.properties
+
       - name: Build with Gradle
         run: ./gradlew assembleRelease
-        env:
-          GITHUB_PACKAGES_USERNAME: ${{ secrets.GITHUB_PACKAGES_USERNAME }}
-          GITHUB_PACKAGES_PASSWORD: ${{ secrets.GITHUB_PACKAGES_PASSWORD }}
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
