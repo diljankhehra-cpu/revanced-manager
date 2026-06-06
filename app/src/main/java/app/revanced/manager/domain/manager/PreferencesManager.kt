@@ -31,10 +31,10 @@ class PreferencesManager(
     val usePatchesPrereleases = booleanPreference("patches_prereleases", false)
     val useDownloaderPrerelease = booleanPreference("downloader_prereleases", false)
 
-    val disablePatchVersionCompatCheck = booleanPreference("disable_patch_version_compatibility_check", false)
+    val disablePatchVersionCompatCheck = booleanPreference("disable_patch_version_compatibility_check", true)
     val disableSelectionWarning = booleanPreference("disable_selection_warning", false)
-    val disableUniversalPatchCheck = booleanPreference("disable_patch_universal_check", false)
-    val suggestedVersionSafeguard = booleanPreference("suggested_version_safeguard", true)
+    val disableUniversalPatchCheck = booleanPreference("disable_patch_universal_check", true)
+    val suggestedVersionSafeguard = booleanPreference("suggested_version_safeguard", false)
 
     val showDeveloperSettings = booleanPreference("show_developer_settings", context.isDebuggable)
 
